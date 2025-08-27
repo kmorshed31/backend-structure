@@ -37,10 +37,7 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 // Health
-app.get('/health', async (_req, res) => {
-  const db = await usersHealth();
-  res.status(200).json({ status: 'ok', db });
-});
+app.get('/health', (_req, res) => res.status(200).json({ status: 'ok' }));
 
 // Docs: JSON spec + Swagger UI
 app.get('/docs/openapi.json', (_req, res) => res.sendFile(OPENAPI_PATH));
